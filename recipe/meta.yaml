@@ -1,13 +1,14 @@
 {% set name = "ParProcCo" %}
-{% set version = "2.1.0" %}
+{% set lname = name | lower %}
+{% set version = "2.1.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ lname }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ParProcCo-{{ version }}.tar.gz
-  sha256: f86ec8aabaf76d3e67a3718c56bf59c1a63aac9675d2650f66395fc9961e234f
+  url: https://pypi.io/packages/source/{{ lname[0] }}/{{ lname }}/{{ lname }}-{{ version }}.tar.gz
+  sha256: 64e27ca59225dcd509f9945fd489669a65fe7cb803a99ae984df2bbffc714f3d
 
 build:
   number: 0
