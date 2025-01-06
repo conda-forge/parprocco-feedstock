@@ -1,3 +1,4 @@
+{% set python_min = '3.10' %}
 {% set name = "ParProcCo" %}
 {% set lname = name | lower %}
 {% set version = "2.1.2" %}
@@ -7,21 +8,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ lname[0] }}/{{ lname }}/{{ lname }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ lname[0] }}/{{ lname }}/{{ lname }}-{{ version }}.tar.gz
   sha256: aa4691c0c1de7cbd5db9411a2a935a7da6f37d4d70e41a3e4175229f314f2c66
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . -vv"
   noarch: python
 
 requirements:
   host:
-    - python >=3.10
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python >=3.10
+    - python >={{ python_min }}
     - h5py >=3
     - pydantic >=2
     - pyyaml
@@ -36,6 +37,7 @@ test:
   requires:
     - parameterized
     - pytest
+    - python {{ python_min }}
   commands:
     - pytest -vv tests/
 
