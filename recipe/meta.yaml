@@ -1,7 +1,7 @@
-{% set python_min = '3.10' %}
+{% set python_min = "3.11" %}
 {% set name = "ParProcCo" %}
 {% set lname = name | lower %}
-{% set version = "2.1.2" %}
+{% set version = "2.2.0" %}
 
 package:
   name: {{ lname }}
@@ -9,10 +9,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ lname[0] }}/{{ lname }}/{{ lname }}-{{ version }}.tar.gz
-  sha256: aa4691c0c1de7cbd5db9411a2a935a7da6f37d4d70e41a3e4175229f314f2c66
+  sha256: e80e11cc595fea1d9466d3100667bad0e1bacb8d6d6878e68cfebb56cf342eb8
 
 build:
-  number: 1
+  number: 0
   script: "{{ PYTHON }} -m pip install . -vv"
   noarch: python
 
@@ -48,9 +48,7 @@ about:
   license_file: LICENSE
   summary: 'Parallel Processing Coordinator'
 
-  description:
-    Parallel Processing Coordinator. Splits dataset processing to run parallel
-    cluster jobs and aggregates outputs.
+  description: Parallel Processing Coordinator. Splits dataset processing to run parallel cluster jobs and aggregates outputs.
   doc_url: https://github.com/DiamondLightSource/{{ name }}/blob/master/README.md
   dev_url: https://github.com/DiamondLightSource/{{ name }}
 
